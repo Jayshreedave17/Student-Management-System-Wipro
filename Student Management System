@@ -1,0 +1,151 @@
+import java.util.*;
+interface StudentManagement
+{
+	void name(String name);
+	void rollno(int r);
+	void branch(String br);
+	void semester(int s);
+	void contact(int co);
+	void marks(int a,int b,int c,int d,int e);
+	void displaymarks();
+	void displayresult();
+}
+
+class Faculty
+{
+	int a,b,c,d,e,r,s,co;
+	String name,br;
+	void name(String name)
+	{
+		this.name=name;
+	}
+	void rollno(int r)
+	{
+	    this.r=r;
+	}
+	void branch(String br)
+	{
+	    this.br=br;
+	}
+	void semester(int s)
+	{
+	    this.s=s;
+	}
+	void contact(int co)
+	{
+	    this.co=co;
+	}
+	void marks(int a,int b,int c,int d,int e)
+	{
+		this.a=a;
+		this.b=b;
+		this.c=c;
+		this.d=d;
+		this.e=e;
+	}
+}
+class Manages extends Faculty implements StudentManagement
+{
+	public void name(String name)
+	{
+		super.name(name);
+	}
+		public void rollno(int r)
+	{
+		super.rollno(r);
+	}
+		public void branch(String br)
+	{
+		super.branch(br);
+	}
+		public void semester(int s)
+	{
+		super.semester(s);
+	}
+		public void contact(int co)
+	{
+		super.contact(co);
+	}
+	public void marks(int a,int b,int c,int d,int e)
+	{
+		super.marks(a,b,c,d,e);
+	}
+	public void displaymarks()
+	{
+		
+		System.out.println("Name of Student:"+name);
+		System.out.println("Student RollNo:"+r);
+		System.out.println("Student Branch:"+br);
+		System.out.println("Student Semester:"+s);
+		System.out.println("Student Contact:"+co);
+		System.out.println("Student Marks are:");
+		System.out.println("Hindi:"+a);
+		System.out.println("English:"+b);
+		System.out.println("Physics:"+c);
+		System.out.println("Chemistry:"+d);
+		System.out.println("Maths:"+e);
+		
+	}
+	public void displayresult()
+	{
+		int re=((a+b+c+d+e)*100)/500;
+		if(re>80&&re<=100)//81-100
+		{
+			System.out.println("A Grade\n");
+		}
+		else if(re>60&&re<81)//61-80
+		{
+			System.out.println("B Grade\n");
+		}
+		else if(re>40&&re<61)//41-60
+		{
+			System.out.println("C Grade\n");
+		}
+		else if(re>30&&re<41)//30-40
+		{
+			System.out.println("D Grade\n");
+		}
+		else if(re>=0&&re<30)//0-29
+		{
+			System.out.println("Fail\n");
+		}
+		else 
+		{
+			System.out.println("Invalid Data \n");
+		}
+	}
+}
+public class Main
+{
+public static void main(String ar[])
+{
+	int a,b,c,d,e,r,s,co;
+	String name,br;
+	Scanner sc= new Scanner(System.in);
+	System.out.println("Enter Student name:");
+	name=sc.next();
+	System.out.println("Enter Student RollNo:");
+	r=sc.nextInt();
+	System.out.println("Enter Student Branch:");
+	br=sc.next();
+	System.out.println("Enter Student Semester:");
+	s=sc.nextInt();
+	System.out.println("Enter Student Contact Number:");
+    co=sc.nextInt();
+	System.out.println("Enter Student Marks:");
+	a=sc.nextInt();
+	b=sc.nextInt();
+    c=sc.nextInt();
+    d=sc.nextInt();
+    e=sc.nextInt();
+	Manages m=new Manages();
+	m.name(name);
+	m.rollno(r);
+	m.branch(br);
+	m.semester(s);
+	m.contact(co);
+	m.marks(a,b,c,d,e);
+	m.displaymarks();
+	m.displayresult();
+}
+}
